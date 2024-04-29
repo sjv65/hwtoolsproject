@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tool List</title>
+</head>
+<body>
+    <h1>List of Tools</h1>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Uses</th>
+            <th>Characters</th>
+            <th>Actions</th>
+        </tr>
+        {% for tool in tools %}
+        <tr>
+            <td>{{ tool.name }}</td>
+            <td>${{ tool.price }}</td>
+            <td>{{ tool.uses }}</td>
+            <td>{{ tool.characters }}</td>
+            <td>
+                <a href="{% url 'edit-tool' tool.id %}">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'new-tool' %}">Add New Tool</a>
+</body>
+</html>

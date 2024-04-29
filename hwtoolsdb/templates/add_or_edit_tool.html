@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add/Edit Tool</title>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Edit Tool{% else %}Add New Tool{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'tools-list' %}">Back to Tool List</a>
+</body>
+</html>
